@@ -1,0 +1,62 @@
+#####################################
+# 1. GitHub Actions
+#####################################
+
+gha_workspace = "..."
+
+#####################################
+# 2. GCP
+#####################################
+
+project = "..."
+service_account_email = "..."
+bucket_name = "..."
+gcp_user = "..."
+
+#####################################
+# 3. GCP Networking
+#####################################
+
+runner_ip = "..."
+runner_reachable_protocol_port_map = {
+  "tcp" = "22, 80, 443"
+  "udp" = "51820"
+}
+local_ip = "..."
+self_reachable_protocol_port_map = {
+  "tcp" = "22"
+}
+
+#####################################
+ 4. Infrastucture
+ Example:
+  configuration = [
+    {
+      name  = "kafka"
+      count = 3
+      labels = {
+        "role" = ["zookeeper-nodes", "kafka-nodes"]
+      }
+      machine_type = "e2-small"
+      image        = "ubuntu-minimal-2004-focal-v20230427"
+      tags = ["zookeeper", "kafka", "allow-ssh", "allow-http", "allow-internal"]
+    },
+    {
+      name  = "wg"
+      count = 1,
+      labels = {
+        "role" = ["wg"]
+      }
+      machine_type = "e2-small"
+      image        = "ubuntu-minimal-2004-focal-v20230427"
+      tags = ["allow-ssh", "allow-http", "allow-internal"]
+    }
+  ]
+}
+
+
+
+
+
+
+
